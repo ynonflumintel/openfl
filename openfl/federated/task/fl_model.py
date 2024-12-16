@@ -32,7 +32,7 @@ class FederatedModel(TaskRunner):
             pytorch).
         tensor_dict_split_fn_kwargs (dict): Keyword arguments for the tensor
             dict split function.
-        data_loader (FederatedDataSet): A dataset to distribute among the collaborators, 
+        data_loader (FederatedDataSet): A dataset to distribute among the collaborators,
             see TaskRunner for more details
     """
 
@@ -77,7 +77,7 @@ class FederatedModel(TaskRunner):
             self.runner.validate = lambda *args, **kwargs: build_model.validate(
                 self.runner, *args, **kwargs
             )
-        
+
         if hasattr(self.model, "train_epoch"):
             self.runner.train_epoch = lambda *args, **kwargs: build_model.train_epoch(
                 self.runner, *args, **kwargs
